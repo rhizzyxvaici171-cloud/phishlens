@@ -2,7 +2,7 @@
 
 A URL phishing inspector that runs entirely in the browser. Paste a link, and it checks the URL text itself for patterns commonly used in phishing and social-engineering attacks, before you ever click it.
 
-**[Live demo](https://github.com/rhizzyxvaici171-cloud/phishlens)**
+**[Live demo](https://rhizzyxvaici171-cloud.github.io/phishlens)**
 
 ## What it detects
 

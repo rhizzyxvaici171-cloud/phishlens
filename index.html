@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhishLens: URL Phishing Inspector</title>
+<meta name="description" content="Paste a link to check it for common phishing red flags: brand lookalikes, punycode tricks, IP-based hosts, the @ trick, and more. Runs entirely in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">◎</span>
+      <span class="brand-name">PhishLens</span>
+    </div>
+    <p class="tagline">Paste a link before you click it. Checked entirely in your browser, nothing is sent anywhere.</p>
+  </header>
+
+  <main class="panel">
+    <label for="urlInput" class="field-label">URL to check</label>
+    <div class="input-row">
+      <input type="text" id="urlInput" placeholder="https://example.com/login" autocomplete="off" spellcheck="false" autocapitalize="off">
+      <button id="checkBtn" type="button">Check</button>
+    </div>
+
+    <div id="output" class="output" hidden>
+      <div class="result-head">
+        <div class="score-ring" id="scoreRing">
+          <span id="scoreValue">0</span>
+        </div>
+        <div class="result-summary">
+          <div class="result-level" id="resultLevel">Clean</div>
+          <div class="result-domain mono" id="resultDomain"></div>
+        </div>
+      </div>
+
+      <ul class="findings" id="findings"></ul>
+    </div>
+
+    <div id="errorBox" class="error-box" hidden></div>
+  </main>
+
+  <section class="about">
+    <h2>What this checks for</h2>
+    <ul class="about-list">
+      <li><strong>Brand lookalikes and embedding</strong>, like <code>paypa1.com</code> or <code>amazon-support.net</code>, spelled to survive a quick glance.</li>
+      <li><strong>The "@" trick</strong>, where everything before an unencoded <code>@</code> is ignored by the browser, so the visible-looking destination isn't the real one.</li>
+      <li><strong>Punycode and mixed-script domains</strong>, which can render as characters from a different alphabet that look identical to Latin letters.</li>
+      <li><strong>Raw IP addresses, risky TLDs, and link shorteners</strong>, all common ways to dodge domain-based filtering or hide a real destination.</li>
+    </ul>
+    <p class="about-note">This is a pattern check on the URL text itself, not a verdict. It doesn't visit the link, scan for malware, or check reputation databases. A clean result isn't a guarantee, and a flagged result isn't automatically dangerous, just worth a second look.</p>
+  </section>
+
+  <footer class="site-footer">
+    <p>Open source on <a href="#" id="repoLink">GitHub</a> · Plain HTML, CSS and JS, no frameworks, no backend, no network calls.</p>
+  </footer>
+
+</div>
+<script src="analyzer.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

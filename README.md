@@ -26,7 +26,7 @@ Plain HTML, CSS, and JavaScript. No dependencies, no build step, no backend, and
 ## Running it locally
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/phishlens.git
+git clone https://github.com/rhizzyxvaici171-cloud/phishlens.git
 cd phishlens
 open index.html
 ```
@@ -45,7 +45,7 @@ console.log(analyzeUrl('https://paypal-secure-login.com/'));
 1. Push this repo to GitHub.
 2. Go to **Settings → Pages**.
 3. Under **Source**, select the `main` branch and `/ (root)` folder, then Save.
-4. Live at `https://YOUR_USERNAME.github.io/phishlens/` shortly after.
+4. Live at `https://rhizzyxvaici171-cloud.github.io/phishlens/` shortly after.
 
 ## A bug worth mentioning
 
